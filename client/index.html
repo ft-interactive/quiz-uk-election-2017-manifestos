@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en-GB" class="core">
+<html lang="en-GB" class="core"
+    ng-app="quizApp">
   <head>
 
     <meta charset="utf-8">
@@ -51,6 +52,9 @@
     <!-- endbuild -->
     <!-- endsmoosh -->
 
+    <!-- TODO: enter quiz Google Sheet ID -->
+    <script src="https://bertha.ig.ft.com/view/publish/js/{{Google Sheet ID}}/basic?d=quiz"></script>
+
     <link rel="stylesheet" href="https://origami-build.ft.com/v2/bundles/css?modules=n-normalize@^1">
 
     <!-- smoosh -->
@@ -58,6 +62,8 @@
     <link rel="stylesheet" href="styles/top.css">
     <!-- endbuild -->
     <!-- endsmoosh -->
+
+    <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
 
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
@@ -74,6 +80,9 @@
 
     <include src="includes/analytics-ga.html"></include>
 
+    <!-- TODO: set base URL -->
+    <base href="/">
+    <!-- <base href="{{base URL}}"> -->
   </head>
   <body>
 
@@ -95,15 +104,16 @@
               <include src="includes/share.html"></include>
 
               <!-- REPLACE THIS with your article head html -->
-              <include src="includes/mock-article-head.html"></include>
+              <include src="includes/quiz-head.html"></include>
 
             </header>
           </div>
         </div>
 
-        <div class="article-body o-typography-body-wrapper">
+        <div class="o-typography-body-wrapper"
+            ng-controller="QuizCtrl">
           <!-- REPLACE THIS with your article body html -->
-          <include src="includes/mock-article-content.html"></include>
+          <include src="includes/quiz.html"></include>
         </div>
 
       </article>
@@ -112,6 +122,10 @@
     <include src="includes/footer.html"></include>
 
     <!-- build:js scripts/main.js -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="scripts/angular-animation-counter.js"></script>
+    <script src="bower_components/angular-socialshare/dist/angular-socialshare.min.js"></script>
+    <script src="bower_components/d3/d3.min.js"></script>
     <script src="scripts/main.bundle.js"></script>
     <!-- endbuild -->
   </body>

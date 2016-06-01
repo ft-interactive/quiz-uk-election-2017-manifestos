@@ -1,0 +1,169 @@
+<div class="o-grid-container">
+  <div ng-repeat="question in questions">
+    <div class="animate-reveal"
+        ng-controller="QuestionCtrl"
+        ng-show="$index <= currentQuestion.value"
+        ng-cloak>
+
+      <div class="o-grid-row">
+        <div data-o-grid-colspan="12 M8 L6 center">
+          <h2 style="text-align: center">Question {{$index + 1}} of 10</h2>
+        </div>
+      </div>
+
+      <div class="o-grid-row">
+        <div data-o-grid-colspan="12 M8 center">
+          <div class="o-grid-row">
+
+            <div data-o-grid-colspan="12 L6" class="quiz-image">
+
+              <img alt="" src="{{questions[$index].imgurl}}" style="width: 100%">
+
+              <div class="o-typography-caption">
+                {{questions[$index].imgcredit}}
+              </div>
+
+            </div>
+
+            <div data-o-grid-colspan="12 L6">
+
+              <h3 class="o-typography-header3">{{questions[$index].question}}</h3>
+
+              <div class="answer-controls"
+                  ng-repeat="choice in choices[$index]">
+                <button class="o-buttons o-buttons--big o-buttons--standout"
+                    ng-click="submitAnswer()"
+                    ng-class="{correct: answerSubmitted && choice === correctAnswer, incorrect: answerSubmitted && choice === userAnswer && choice != correctAnswer}"
+                    ng-disabled="answerSubmitted">
+
+                  {{choice}}
+
+                  <div style="float: right; padding-right: 10px">
+                    <i class="icon-tick" style="position: absolute"
+                        ng-show="answerSubmitted && choice === userAnswer && choice === correctAnswer"></i>
+                    <i class="icon-cross" style="position: absolute"
+                        ng-show="answerSubmitted &&  choice === userAnswer && choice != correctAnswer"></i>
+                  </div>
+
+                </button>
+              </div>
+            <!-- /data-o-grid-colspan -->
+            </div>
+          <!-- /o-grid-row -->
+          </div>
+        </div>
+      </div>
+
+      <div class="o-grid-row animate-reveal"
+          ng-show="answerSubmitted">
+        <div data-o-grid-colspan="12 M8 L6 center">
+
+          <p>
+            {{questions[$index].answercopy}}
+          </p>
+
+          <div data-o-component="o-aside-panel" class="o-aside-panel">
+
+            <div class="o-aside-panel__header">
+              <h3 class="o-aside-panel__heading">More on this story</h3>
+            </div>
+
+            <div class="o-aside-panel__body">
+              <a href="{{questions[$index].linkurl}}" target="_blank">{{questions[$index].linktext}}</a>
+            </div>
+
+          </div>
+        <!-- /data-o-grid-colspan -->
+        </div>
+      </div>
+
+      <div class="splash animate-splash"
+          ng-class="{correct: isCorrect, incorrect: !isCorrect}"
+          ng-show="showSplash">
+
+        <div class="o-big-number__title animate-splash"
+            ng-show="answerSubmitted && isCorrect">
+          Correct!
+        </div>
+
+        <div class="o-big-number__title animate-splash"
+            ng-show="answerSubmitted && !isCorrect">
+          Incorrect!
+        </div>
+
+      </div>
+    <!-- /ng-controller -->
+    </div>
+  <!-- /ng-repeat -->
+  </div>
+
+  <!-- Results -->
+  <div ng-show="quizStatus.isOver">
+
+    <div class="o-grid-row">
+      <div data-o-grid-colspan="12 M8 L6 center" style="margin-top: 6px; text-align: center">
+        <h2 class="o-typography-header-2">{{message.text}}</h2>
+      </div>
+    </div>
+
+    <div class="o-grid-row">
+      <div data-o-grid-colspan="12 M8 L6 center" style="max-height: 200px; margin-top: 4px; padding-left: 10px; text-align: center">
+        <d3-arc-tween>
+          <div class="o-big-number__title">
+            <span style="margin-left: 2px;" inc-dec-counter value="{{userScore.value}}"></span><span>/{{questions.length}}</span>
+          </div>
+        </d3-arc-tween>
+      </div>
+    </div>
+
+    <div class="o-grid-row">
+      <div data-o-grid-colspan="12 M8 L6 center" style="margin-top: 0.5em; margin-bottom: 0.8em; text-align: center">
+        <div class="answer-controls">
+
+          <button class="o-buttons o-buttons--big o-buttons--standout"
+              ng-disabled="!quizStatus.isOver"
+              socialshare
+              socialshare-provider="twitter"
+              socialshare-text="I just scored {{userScore.value}}/{{questions.length}} on the #FirstFT quiz! Challenge me: "
+              socialshare-url="https://ig.ft.com/sites/quiz/firstft-2016-05-27/">
+
+            <i class="fa fa-twitter"></i>
+
+            Tweet Your Score
+
+          </button>
+
+          <a href="http://www.ft.com/firstft">
+            <button class="o-buttons o-buttons--big">
+              GO TO <em>First</em>FT
+            </button>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="o-grid-row">
+      <div data-o-grid-colspan="12 M8 L6 center">
+        <div data-o-component="o-aside-panel" class="o-aside-panel" style="margin-top: 4px">
+
+          <div class="o-aside-panel__header">
+            <h3 class="o-aside-panel__heading">Featured in this quiz</h3>
+          </div>
+
+          <div class="o-aside-panel__body">
+            <ol style="font-size: 16px; font-weight: 400">
+              <li ng-repeat="question in questions">
+                <a href="{{question.linkurl}}" target="_blank">{{question.linktext}}</a>
+              </li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  <!-- /ng-show -->
+  </div>
+</div>
+
+<script>if (cutsTheMustard) addScript('https://origami-build.ft.com/v2/bundles/js?modules=o-big-number@^1.1.3', true, true)</script>
