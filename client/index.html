@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en-GB" class="core"
-    ng-app="quizApp">
+    ng-app="quizApp"
+    ng-cloak>
   <head>
 
     <meta charset="utf-8">
@@ -9,26 +10,21 @@
     <link rel="preconnect" href="https://origami-build.ft.com/">
     <link rel="preconnect" href="https://cdn.polyfill.io/">
 
-    <!--
-      TODO: FILL IN THESE MANDATORY TAGS AND
-            REMOVE THIS COMMENT
+    <title>FirstFT Quiz: the week in news | FT.com</title>
+    <meta name="twitter:title" content="FirstFT Quiz: the week in news | FT.com">
+    <meta property="og:title" content="FirstFT Quiz: the week in news | FT.com">
 
-    <title>@@TITLE</title>
-    <meta name="twitter:title" content="@@TITLE">
-    <meta property="og:title" content="@@TITLE">
+    <meta name="description" content="Test your knowledge of the week’s news">
+    <meta name="twitter:description" content="Test your knowledge of the week’s news">
+    <meta property="og:description" content="Test your knowledge of the week’s news">
 
-    <meta name="description" content="@@DESCRIPTION">
-    <meta name="twitter:description" content="@@DESCRIPTION">
-    <meta property="og:description" content="@@DESCRIPTION">
+    <link rel="canonical" href="http://www.ft.com/firstft-quiz">
+    <meta name="twitter:url" content="http://www.ft.com/firstft-quiz">
+    <meta property="og:url" content="http://www.ft.com/firstft-quiz">
 
-    <link rel="canonical" href="@@URL">
-    <meta name="twitter:url" content="@@URL">
-    <meta property="og:url" content="@@URL">
-
-    <link rel="image_src" href="@@IMAGE">
-    <meta name="twitter:image" content="@@IMAGE">
-    <meta property="og:image" content="@@IMAGE">
-    -->
+    <link rel="image_src" href="https://image.webservices.ft.com/v1/images/raw/ftcms:33c5a0b2-2358-11e6-aa98-db1e01fabc0c?source=ig&width=600">
+    <meta name="twitter:image" content="https://image.webservices.ft.com/v1/images/raw/ftcms:33c5a0b2-2358-11e6-aa98-db1e01fabc0c?source=ig&width=600">
+    <meta property="og:image" content="https://image.webservices.ft.com/v1/images/raw/ftcms:33c5a0b2-2358-11e6-aa98-db1e01fabc0c?source=ig&width=600">
 
     <!--
       TODO: Select Twitter card type -
@@ -52,8 +48,10 @@
     <!-- endbuild -->
     <!-- endsmoosh -->
 
+    <script src="bower_components/angular/angular.min.js"></script>
+
     <!-- TODO: enter quiz Google Sheet ID -->
-    <script src="https://bertha.ig.ft.com/view/publish/js/{{Google Sheet ID}}/basic?d=quiz"></script>
+    <script src="https://bertha.ig.ft.com/view/publish/js/1PjEhzH_jbhxrJYmpLu-ChloMStAhX0qNLaRMoYJM1eY/basic?d=quiz"></script>
 
     <link rel="stylesheet" href="https://origami-build.ft.com/v2/bundles/css?modules=n-normalize@^1">
 
@@ -81,8 +79,8 @@
     <include src="includes/analytics-ga.html"></include>
 
     <!-- TODO: set base URL -->
-    <base href="/">
-    <!-- <base href="{{base URL}}"> -->
+    <!-- <base href="/"> -->
+    <base href="https://ig.ft.com/sites/quiz/firstft-2016-06-03/">
   </head>
   <body>
 
@@ -122,7 +120,6 @@
     <include src="includes/footer.html"></include>
 
     <!-- build:js scripts/main.js -->
-    <script src="bower_components/angular/angular.min.js"></script>
     <script src="scripts/angular-animation-counter.js"></script>
     <script src="bower_components/angular-socialshare/dist/angular-socialshare.min.js"></script>
     <script src="bower_components/d3/d3.min.js"></script>
