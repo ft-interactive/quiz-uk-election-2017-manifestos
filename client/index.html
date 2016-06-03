@@ -48,8 +48,6 @@
     <!-- endbuild -->
     <!-- endsmoosh -->
 
-    <script src="bower_components/angular/angular.min.js"></script>
-
     <!-- TODO: enter quiz Google Sheet ID -->
     <script src="https://bertha.ig.ft.com/view/publish/js/1PjEhzH_jbhxrJYmpLu-ChloMStAhX0qNLaRMoYJM1eY/basic?d=quiz"></script>
 
@@ -79,8 +77,8 @@
     <include src="includes/analytics-ga.html"></include>
 
     <!-- TODO: set base URL -->
-    <!-- <base href="/"> -->
-    <base href="https://ig.ft.com/sites/quiz/firstft-2016-06-03/">
+    <base href="/">
+    <!-- <base href="https://ig.ft.com/sites/quiz/firstft-2016-06-03/"> -->
   </head>
   <body>
 
@@ -120,6 +118,7 @@
     <include src="includes/footer.html"></include>
 
     <!-- build:js scripts/main.js -->
+    <script src="bower_components/angular/angular.min.js"></script>
     <script src="scripts/angular-animation-counter.js"></script>
     <script src="bower_components/angular-socialshare/dist/angular-socialshare.min.js"></script>
     <script src="bower_components/d3/d3.min.js"></script>
