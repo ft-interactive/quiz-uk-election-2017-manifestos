@@ -151,6 +151,10 @@ $share-button-size: 38px;
   margin-bottom: 0;
 }
 
+.o-typography-flyline__link, .article__byline a {
+  @include oColorsFor(link);
+}
+
 .o-typography-body-wrapper h2 {
   margin-top: 0.83em;;
 }
