@@ -251,6 +251,10 @@ d3-arc-tween .o-big-number__title {
   list-style-type: none;
 }
 
+.o-aside-panel__body ol {
+  font-family: $font-sans;
+}
+
 // Animations
 .animate-splash.ng-hide {
   opacity: 0;
