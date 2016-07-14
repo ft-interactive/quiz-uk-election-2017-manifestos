@@ -3,51 +3,47 @@ import ngRoute from 'angular-route';
 import ngSanitize from 'angular-sanitize';
 import $ from 'jquery';
 
+const angular = window.angular;
 // App module
 const app = angular.module('quizApp', [
   'ngAnimate',
   'ngRoute',
   'ngSanitize',
-  'angular-animation-counter',
   '720kb.socialshare',
   'd3'
 ]);
 
 // Routes
-app.config(['$locationProvider',
-  function ($locationProvider) {
-    // Use the HTML5 history API
-    $locationProvider.html5Mode(true);
-  }
-]);
+app.config(['$locationProvider', $locationProvider => {
+  // Use the HTML5 history API
+  $locationProvider.html5Mode(true);
+}]);
 
 // Controllers
-app.controller('QuizCtrl', ['$scope', '$http',
-  function ($scope) {
-    $scope.questions = [];
-    $scope.choices = [];
-    $scope.currentQuestion = {
-      value: 0
-    };
-    $scope.userScore = {
-      value: 0
-    };
-    $scope.quizStatus = {
-      isOver: false
-    };
-    $scope.message = {
-      text: null
-    };
+app.controller('QuizCtrl', ['$scope', '$http', $scope => {
+  $scope.questions = [];
+  $scope.choices = [];
+  $scope.currentQuestion = {
+    value: 0
+  };
+  $scope.userScore = {
+    value: 0
+  };
+  $scope.quizStatus = {
+    isOver: false
+  };
+  $scope.message = {
+    text: null
+  };
 
-    angular.forEach(window.quiz.data, row => {
-      $scope.questions.push(row);
-      $scope.choices.push([row.choice1, row.choice2, row.choice3]);
-    });
-  }
-]);
+  angular.forEach(window.quiz.data, row => {
+    $scope.questions.push(row);
+    $scope.choices.push([row.choice1, row.choice2, row.choice3]);
+  });
+}]);
 
 app.controller('QuestionCtrl', ['$scope', '$timeout', '$window',
-  function ($scope, $timeout, $window) {
+  ($scope, $timeout, $window) => {
     $scope.submitAnswer = function () {
       $scope.answerSubmitted = true;
       $scope.userAnswer = this.choice;
@@ -122,11 +118,10 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window',
 ]);
 
 // Services
-angular.module('d3', [])
-    .factory('d3Service', [function () {
-      const d3 = window.d3;
-      return d3;
-    }]);
+angular.module('d3', []).factory('d3Service', [function () {
+  const d3 = window.d3;
+  return d3;
+}]);
 
 // Directives
 /*eslint-disable*/
