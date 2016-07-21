@@ -22,19 +22,15 @@
       <div class="o-grid-row">
         <div data-o-grid-colspan="12 M8 center">
           <div class="o-grid-row">
-
             <div data-o-grid-colspan="12 L6" class="quiz-image">
-
               <img alt="" ng-src="{{questions[$index].imgurl}}" style="width: 100%">
 
               <div class="o-typography-caption">
                 {{questions[$index].imgcredit}}
               </div>
-
             </div>
 
             <div data-o-grid-colspan="12 L6">
-
               <h3 class="o-typography-header3">{{questions[$index].question}}</h3>
 
               <div class="answer-controls"
@@ -52,7 +48,6 @@
                     <i class="icon-cross" style="position: absolute"
                         ng-show="answerSubmitted &&  choice === userAnswer && choice != correctAnswer"></i>
                   </div>
-
                 </button>
               </div>
             <!-- /data-o-grid-colspan -->
@@ -74,7 +69,6 @@
           </p>
 
           <div data-o-component="o-aside-panel" class="o-aside-panel">
-
             <div class="o-aside-panel__header">
               <h3 class="o-aside-panel__heading">More on this story</h3>
             </div>
@@ -82,7 +76,6 @@
             <div class="o-aside-panel__body">
               <a href="{{questions[$index].linkurl}}" target="_blank">{{questions[$index].linktext}}</a>
             </div>
-
           </div>
         <!-- /data-o-grid-colspan -->
         </div>
@@ -91,10 +84,10 @@
       <div class="splash animate-splash"
           ng-class="{correct: isCorrect, incorrect: !isCorrect}"
           ng-show="showSplash">
-
         <div class="o-big-number__title animate-splash"
             ng-show="answerSubmitted && isCorrect">
           Correct
+
           <div>
             <i class="icon-thumb-up"></i>
           </div>
@@ -103,11 +96,11 @@
         <div class="o-big-number__title animate-splash"
             ng-show="answerSubmitted && !isCorrect">
           Incorrect
+
           <div>
             <i class="icon-thumb-down"></i>
           </div>
         </div>
-
       </div>
     <!-- /ng-controller -->
     </div>
@@ -116,7 +109,6 @@
 
   <!-- Results -->
   <div ng-show="quizStatus.isOver">
-
     <div class="o-grid-row">
       <div data-o-grid-colspan="12 M8 L6 center" style="margin-top: 6px; text-align: center">
         <h2 class="o-typography-header-2">Your result: {{message.text}}</h2>
@@ -136,7 +128,6 @@
     <div class="o-grid-row">
       <div data-o-grid-colspan="12 M8 L6 center" style="margin-top: 0.5em; margin-bottom: 0.8em; text-align: center">
         <div class="answer-controls">
-
           <button class="o-buttons o-buttons--big o-buttons--standout"
               ng-disabled="!quizStatus.isOver"
               socialshare
@@ -151,7 +142,6 @@
           <a href="http://www.ft.com/firstft" class="o-buttons o-buttons--big firstft">
             GO TO <em>First</em>FT
           </a>
-
         </div>
       </div>
     </div>
@@ -159,7 +149,6 @@
     <div class="o-grid-row">
       <div data-o-grid-colspan="12 M8 L6 center">
         <div data-o-component="o-aside-panel" class="o-aside-panel" style="margin-top: 4px">
-
           <div class="o-aside-panel__header">
             <h3 class="o-aside-panel__heading">Featured in this quiz</h3>
           </div>
@@ -171,7 +160,6 @@
               </li>
             </ol>
           </div>
-
         </div>
       </div>
     </div>
