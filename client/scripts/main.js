@@ -91,12 +91,12 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window',
       function message() {
         if ($scope.userScore.value > $scope.questions.length / 2) {
           if ($scope.userScore.value === $scope.questions.length) {
-            $scope.message.text = 'First rate!';
+            $scope.message.text = 'first rate!';
           } else {
-            $scope.message.text = 'Not too shabby!';
+            $scope.message.text = 'not too shabby!';
           }
         } else {
-          $scope.message.text = 'Room for improvement!';
+          $scope.message.text = 'room for improvement!';
         }
       }
 
