@@ -35,12 +35,6 @@ app.controller('QuizCtrl', ['$scope', '$http', $scope => {
   $scope.message = {
     text: null
   };
-  $scope.publicationDate = window.quiz.config[0].date;
-  $scope.publicationDateLong = window.quiz.config[0].datelong;
-
-  const timestamp = document.getElementsByTagName('time')[0];
-
-  timestamp.setAttribute('datetime', `${$scope.publicationDate}T00:05:30.000Z`);
 
   angular.forEach(window.quiz.data, row => {
     $scope.questions.push(row);

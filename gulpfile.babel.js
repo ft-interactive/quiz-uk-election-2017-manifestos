@@ -149,6 +149,8 @@ gulp.task('copy', () => gulp.src(
 
 gulp.task('build-pages', () =>
   gulp.src(['client/**/*.html', '!client/includes/**.html'])
+      .pipe($.data(() => require('./config.json')))
+      .pipe($.nunjucks.compile())
       .pipe($.htmlTagInclude()).pipe(gulp.dest('.tmp'))
 );
 

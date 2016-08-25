@@ -10,18 +10,17 @@
     <link rel="preconnect" href="https://origami-build.ft.com/">
     <link rel="preconnect" href="https://cdn.polyfill.io/">
 
-    <title>FirstFT quiz: the week in news — FT.com</title>
-    <meta name="twitter:title" content="FirstFT quiz: the week in news">
-    <meta property="og:title" content="FirstFT quiz: the week in news">
+    <title>{{title}} — FT.com</title>
+    <meta name="twitter:title" content="{{title}}">
+    <meta property="og:title" content="{{title}}">
 
-    <meta name="description" content="How well did you keep up with the news this week? Take our quiz to find out">
-    <meta name="twitter:description" content="How well did you keep up with the news this week? Take our quiz to find out">
-    <meta property="og:description" content="How well did you keep up with the news this week? Take our quiz to find out">
+    <meta name="description" content="{{description}}">
+    <meta name="twitter:description" content="{{description}}">
+    <meta property="og:description" content="{{description}}">
 
-    <!-- Publication date here x 3 -->
-    <link rel="canonical" href="https://ig.ft.com/sites/quiz/firstft-2016-08-26/">
-    <meta name="twitter:url" content="https://ig.ft.com/sites/quiz/firstft-2016-08-26/">
-    <meta property="og:url" content="https://ig.ft.com/sites/quiz/firstft-2016-08-26/">
+    <link rel="canonical" href="https://ig.ft.com/sites/quiz/firstft-{{publishedDate}}/">
+    <meta name="twitter:url" content="https://ig.ft.com/sites/quiz/firstft-{{publishedDate}}/">
+    <meta property="og:url" content="https://ig.ft.com/sites/quiz/firstft-{{publishedDate}}/">
 
     <link rel="image_src" href="https://image.webservices.ft.com/v1/images/raw/ftcms:33c5a0b2-2358-11e6-aa98-db1e01fabc0c?source=ig&width=600">
     <meta name="twitter:image" content="https://image.webservices.ft.com/v1/images/raw/ftcms:33c5a0b2-2358-11e6-aa98-db1e01fabc0c?source=ig&width=600">
@@ -51,7 +50,7 @@
     <!-- endsmoosh -->
 
     <!-- TODO: enter quiz Google Sheet ID -->
-    <script src="https://bertha.ig.ft.com/view/publish/js/1tfPZVSf5ZVN6AAbzN4zFmqoYwZzo80i-RXZDycC5J3A/basic,config?d=quiz"></script>
+    <script src="https://bertha.ig.ft.com/view/publish/js/{{sheetKey}}/basic,config?d=quiz"></script>
 
     <link rel="stylesheet" href="https://origami-build.ft.com/v2/bundles/css?modules=n-normalize@^1">
 
@@ -80,7 +79,7 @@
 
     <!-- TODO: set base URL **with trailing slash** -->
     <!-- <base href="/"> -->
-    <base href="https://ig.ft.com/sites/quiz/firstft-2016-08-26/">
+    <base href="https://ig.ft.com/sites/quiz/firstft-{{publishedDate}}/">
   </head>
   <body>
     <script>(function(){function init(){var oTracking=Origami['o-tracking'];oTracking.init({server:'https://spoor-api.ft.com/px.gif',system:{is_live:true},context:{product:'IG'}});oTracking.link.init();oTracking.page({"content":{"asset_type":"interactive","uuid":"740a5da4-6ab9-11e6-a0b1-d87a9fea034f"}});}var o=document.createElement('script');o.async=o.defer=true;o.src='https://origami-build.ft.com/v2/bundles/js?modules=o-tracking';var s=document.getElementsByTagName('script')[0];if(o.hasOwnProperty('onreadystatechange')){o.onreadystatechange=function(){if(o.readyState==='loaded'){init();}};}else{o.onload=init;}s.parentNode.insertBefore(o,s);}());</script><noscript data-o-component="o-tracking"><img src="https://spoor-api.ft.com/px.gif?data=%7B%22action%22%3A%22view%22%2C%22category%22%3A%22page%22%2C%22context%22%3A%7B%22content%22%3A%7B%22asset_type%22%3A%22interactive%22%2C%22uuid%22%3A%22740a5da4-6ab9-11e6-a0b1-d87a9fea034f%22%7D%2C%22product%22%3A%22IG%22%7D%2C%22system%22%3A%7B%22is_live%22%3Atrue%2C%22apiKey%22%3A%22qUb9maKfKbtpRsdp0p2J7uWxRPGJEP%22%2C%22source%22%3A%22o-tracking-ns%22%2C%22version%22%3A%221.0.0%22%7D%7D" height="1" width="1" /></noscript>
@@ -94,11 +93,17 @@
             <header data-o-grid-colspan="12 S11 Scenter M9 L8 XL7">
               <!-- TODO: configure sharing in the include file -->
               <include src="includes/share.html"></include>
-              <p>
-                {{publicationDate}}
-              </p>
 
-              <include src="includes/quiz-head.html"></include>
+              <a href="https://www.ft.com/firstft" class="o-typography-link-topic o-typography-link-topic--medium">FirstFT</a>
+
+              <h1 class="o-typography-heading1"><em>First</em>FT Quiz: the week in news</h1>
+
+              <p class="o-typography-lead">{{description}}</p>
+
+              <p>
+                <time data-o-component="o-date" class="o-typography-timestamp o-date" datetime="{{publishedDate}}T05:30:00.000Z">{{publishedDateLong}}</time>
+                <span class="article__byline">&nbsp;by:&nbsp;<a href="http://search.ft.com/search?queryText=%22chuck+pang%22" target="_blank">Chuck Pang</a>&nbsp;in Hong Kong and&nbsp;<a href="https://twitter.com/davidbjourno" target="_blank">David Blood</a>&nbsp;in London</span>
+              </p>
             </header>
           </div>
         </div>
@@ -111,6 +116,8 @@
     </main>
 
     <include src="includes/footer.html"></include>
+
+    <script>if (cutsTheMustard) addScript('https://origami-build.ft.com/v2/bundles/js?modules=o-date@^2.3.3', true, true)</script>
 
     <!-- build:js scripts/main.js -->
     <script src="bower_components/angular-socialshare/dist/angular-socialshare.min.js"></script>
