@@ -42,8 +42,8 @@ app.controller('QuizCtrl', ['$scope', '$http', $scope => {
   });
 }]);
 
-app.controller('QuestionCtrl', ['$scope', '$timeout', '$window',
-  ($scope, $timeout, $window) => {
+app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
+  ($scope, $timeout, $window, $http) => {
     $scope.submitAnswer = function () {
       $scope.answerSubmitted = true;
       $scope.userAnswer = this.choice;
@@ -88,6 +88,8 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window',
         $('.progress-bar').width(progress + '%');
       });
 
+      console.log(window.responses.data[$scope.userScore.value].percentage);
+
       function message() {
         if ($scope.userScore.value > $scope.questions.length / 2) {
           if ($scope.userScore.value === $scope.questions.length) {
@@ -100,10 +102,31 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window',
         }
       }
 
+      function submit() {
+        const baseURL = 'https://docs.google.com/a/ft.com/forms/d/e/1FAIpQLSfoF6T9t1IGLNJat8JSw_HrxkWPyrxd2mfsH2LieGl7wteU9A/formResponse?entry.550613996=';
+        const submitURL = (baseURL + $scope.userScore.value);
+
+        $http({
+          method: 'POST',
+          url: submitURL,
+        }).then(function success(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+          return;
+        }, function error(response) {
+          // called asynchronously if an error occurs
+          // or server returns response with an error status.
+          console.log(`Submission failed with error status ${response.status}`);
+        });
+      }
+
       // Check to see if quiz is over
       if ($scope.currentQuestion.value === $scope.questions.length - 1) {
-        $scope.quizStatus.isOver = true;
         message();
+        $scope.quizStatus.isOver = true;
+        // Submit score via Google Form
+        submit();
+
         // Log completion and score in GA
         $window.ga('send', 'event', 'Completions', 'Quiz Completed');
         $window.ga('send', 'event', 'Completions', 'Score',
