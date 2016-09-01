@@ -82,7 +82,7 @@ app.controller('QuizCtrl', ['$scope', '$http', $scope => {
 app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
   ($scope, $timeout, $window, $http) => {
     $scope.submitAnswer = function () {
-      const scoreProportion = $scope.userScore.value / $scope.questions.length;
+      let scoreProportion = {};
       $scope.answerSubmitted = true;
       $scope.userAnswer = this.choice;
       $scope.correctAnswer = $scope.questions[$scope.currentQuestion.value].answer;
@@ -152,7 +152,7 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
         }, function error(response) {
           // called asynchronously if an error occurs
           // or server returns response with an error status.
-          console.log(`Submission failed with error status ${response.status}`);
+          console.log(`Server responded with status ${response.status}`);
         });
       }
 
@@ -161,6 +161,8 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
         message();
 
         score.setAttribute('transform', `rotate(-90, ${x}, ${y})`);
+
+        scoreProportion = $scope.userScore.value / $scope.questions.length;
 
         $scope.quizStatus.isOver = true;
 
@@ -172,7 +174,7 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
         });
 
         // Submit score via Google Form
-        // submit();
+        submit();
 
         // Log completion and score in GA
         $window.ga('send', 'event', 'Completions', 'Quiz Completed');
