@@ -83,12 +83,10 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
       }
 
       // Update progress bar
-      $(document).ready(() => {
-        const progress = ($scope.currentQuestion.value + 1) * 10;
-        $('.progress-bar').width(progress + '%');
-      });
+      const progress = ($scope.currentQuestion.value + 1) * 10;
+      document.querySelector('.progress-bar').style.width = `${progress}%`;
 
-      console.log(window.responses.data[$scope.userScore.value].percentage);
+      // console.log(window.responses.data[$scope.userScore.value].percentage);
 
       function message() {
         if ($scope.userScore.value > $scope.questions.length / 2) {
