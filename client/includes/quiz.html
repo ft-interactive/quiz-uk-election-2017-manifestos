@@ -117,11 +117,14 @@
 
     <div class="o-grid-row">
       <div data-o-grid-colspan="12 M8 L6 center" style="max-height: 200px; margin-top: 4px; text-align: center">
-        <d3-arc-tween>
-          <div class="o-big-number__title">
-            <span style="margin-left: 2px;">{{userScore.value}}</span><span>/{{questions.length}}</span>
-          </div>
-        </d3-arc-tween>
+        <svg version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg" width="200" height="200" id="radial-gauge">
+          <circle id="total"></circle>
+          <circle id="score"></circle>
+        </svg>
+
+        <div class="o-big-number__title">
+          <span style="margin-left: -17px;">{{userScore.value}}</span><span>/{{questions.length}}</span>
+        </div>
       </div>
     </div>
 

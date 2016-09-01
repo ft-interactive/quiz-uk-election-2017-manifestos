@@ -246,9 +246,10 @@ $share-button-size: 38px;
   transform: scaleY(-1);
 }
 
-d3-arc-tween .o-big-number__title {
-  position: relative;
-  top: 50px;
+.o-big-number__title {
+  width: 100%;
+  position: absolute;
+  top: 66px;
 }
 
 .o-aside-panel__body ul {

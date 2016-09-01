@@ -53,5 +53,8 @@
     "start": "nodemon --watch gulpfile.babel.js --exec 'gulp clean && gulp serve'",
     "deploy": "gulp deploy",
     "test": "eslint . && npm run build"
+  },
+  "dependencies": {
+    "velocity-commonjs": "^1.0.1"
   }
 }
