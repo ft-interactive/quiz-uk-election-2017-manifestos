@@ -1,7 +1,6 @@
 import ngAnimate from 'angular-animate';
 import ngRoute from 'angular-route';
 import ngSanitize from 'angular-sanitize';
-import $ from 'jquery';
 
 const angular = window.angular;
 // App module
