@@ -48,7 +48,6 @@ setAttributes(score, {
   'stroke-width': strokeWidth,
   'stroke-dasharray': circumference,
   'stroke-dashoffset': circumference,
-  transform: `rotate(-90, ${x}, ${y})`,
 });
 
 // Routes
@@ -83,6 +82,7 @@ app.controller('QuizCtrl', ['$scope', '$http', $scope => {
 app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
   ($scope, $timeout, $window, $http) => {
     $scope.submitAnswer = function () {
+      const scoreProportion = $scope.userScore.value / $scope.questions.length;
       $scope.answerSubmitted = true;
       $scope.userAnswer = this.choice;
       $scope.correctAnswer = $scope.questions[$scope.currentQuestion.value].answer;
@@ -159,9 +159,13 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
       // Check to see if quiz is over
       if ($scope.currentQuestion.value === $scope.questions.length - 1) {
         message();
+
+        score.setAttribute('transform', `rotate(-90, ${x}, ${y})`);
+
         $scope.quizStatus.isOver = true;
+
         velocity(score, {
-          'stroke-dashoffset': circumference - (circumference * ($scope.userScore.value / $scope.questions.length))
+          'stroke-dashoffset': circumference - (circumference * scoreProportion)
         }, {
           duration: 1500,
           easing: 'easeInOutCubic'

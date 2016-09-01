@@ -183,8 +183,12 @@ $share-button-size: 38px;
 }
 
 .answer-controls {
+  text-align: center;
   .o-buttons {
     width: 100%;
+    max-width: 625px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 6px;
     &.firstft {
       border-bottom: 1px solid rgba(39, 117, 123, 0.15);
@@ -223,7 +227,7 @@ $share-button-size: 38px;
   padding-top: calc(50vh - 32px);
   color: #fff;
   text-align: center;
-  z-index: 999999;
+  z-index: 999;
 }
 
 .splash.correct {
@@ -246,10 +250,18 @@ $share-button-size: 38px;
   transform: scaleY(-1);
 }
 
-.o-big-number__title {
-  width: 100%;
+.o-big-number__title.gauge {
   position: absolute;
   top: 66px;
+  right: 0;
+  left: 0;
+  margin-left: 10px;
+}
+
+@include oGridRespondTo(M) {
+  .o-big-number__title.gauge {
+    margin-left: 20px;
+  }
 }
 
 .o-aside-panel__body ul {
