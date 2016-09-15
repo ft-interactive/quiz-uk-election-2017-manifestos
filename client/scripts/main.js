@@ -174,7 +174,7 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
         });
 
         // Submit score via Google Form
-        submit();
+        // submit();
 
         // Log completion and score in GA
         $window.ga('send', 'event', 'Completions', 'Quiz Completed');
