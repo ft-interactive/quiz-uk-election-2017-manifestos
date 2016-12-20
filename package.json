@@ -55,6 +55,11 @@
     "test": "eslint . && npm run build"
   },
   "dependencies": {
-    "velocity-commonjs": "^1.0.1"
+    "angular": "~1.5.3",
+    "angular-animate": "~1.5.3",
+    "angular-route": "~1.5.3",
+    "angular-sanitize": "~1.5.3",
+    "angular-socialshare": "^2.1.4",
+    "velocity-animate": "^1.4.0"
   }
 }

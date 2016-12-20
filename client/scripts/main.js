@@ -1,16 +1,17 @@
+import angular from 'angular';
 import ngAnimate from 'angular-animate';
 import ngRoute from 'angular-route';
 import ngSanitize from 'angular-sanitize';
-import velocity from 'velocity-commonjs';
+import velocity from 'velocity-animate';
 
-const angular = window.angular;
 // App module
 const app = angular.module('quizApp', [
-  'ngAnimate',
-  'ngRoute',
-  'ngSanitize',
-  '720kb.socialshare',
+  ngAnimate,
+  ngRoute,
+  ngSanitize,
+  require('angular-socialshare')
 ]);
+
 // Results radial gauge
 const rg = document.getElementById('radial-gauge');
 const total = document.getElementById('total');
