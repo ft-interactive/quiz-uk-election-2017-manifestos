@@ -37,7 +37,7 @@
                   ng-repeat="choice in choices[$index]">
                 <button class="o-buttons o-buttons--big o-buttons--standout"
                     ng-click="submitAnswer()"
-                    ng-class="{correct: answerSubmitted && choice === correctAnswer, incorrect: answerSubmitted && choice === userAnswer && choice != correctAnswer}"
+                    ng-class="{correct: answerSubmitted && choice === correctAnswer, incorrect: answerSubmitted && choice != correctAnswer}"
                     ng-disabled="answerSubmitted">
 
                   {{choice}}
