@@ -1,6 +1,6 @@
-# quiz-angular
+# quiz-angular1
 
-Used to create the [FirstFT Quiz](http://www.ft.com/firstftquiz)
+Used to create the [FirstFT Quiz](http://www.ft.com/firstftquiz).
 
 ## Licence
 This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT). 
