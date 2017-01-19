@@ -187,10 +187,11 @@ $share-button-size: 38px;
   .o-buttons {
     width: 100%;
     max-width: 625px;
-    margin-right: auto;
-    margin-bottom: 6px;
-    margin-left: auto;
+    margin: 0 auto 6px;
     text-transform: uppercase;
+    &.tweet-result {
+      margin-top: 20px;
+    }
     &.firstft {
       border-bottom: 1px solid rgba(39, 117, 123, 0.15);
     }
@@ -229,6 +230,9 @@ $share-button-size: 38px;
   color: #fff;
   text-align: center;
   z-index: 999;
+  .o-big-number__title {
+    font-family: $font-display;
+  }
 }
 
 .splash.correct {
