@@ -2,7 +2,7 @@
   <div class="o-grid-row">
     <div data-o-grid-colspan="12 S11 Scenter M9 L8 XL7">
       <p>
-        <em>First</em>FT is your essential daily email briefing of the world's top stories from the FT and the best of the rest of the web. <a href=http://on.ft.com/1be4Xi1 class=o-buttons target=_blank>Sign Up Now</a>
+        <em>First</em>FT is your essential daily email briefing of the world's top stories from the FT and the best of the rest of the web. <a href="http://on.ft.com/1be4Xi1" class="o-buttons" target="_blank">Sign Up Now</a>
       </p>
     </div>
   </div>
@@ -31,7 +31,7 @@
             </div>
 
             <div data-o-grid-colspan="12 L6">
-              <h3 class="o-typography-header3">{{questions[$index].question}}</h3>
+              <p ng-bind-html="questions[$index].question"></p>
 
               <div class="answer-controls"
                   ng-repeat="choice in choices[$index]">
@@ -117,7 +117,7 @@
 
     <div class="o-grid-row">
       <div data-o-grid-colspan="12 M8 L6 center" style="max-height: 200px; margin-top: 4px; text-align: center">
-        <svg version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg" width="200" height="200" id="radial-gauge">
+        <svg version="1.1" baseprofile="full" xmlns="http://www.w3.org/2000/svg" width="200" height="200" id="radial-gauge">
           <circle id="total"></circle>
           <circle id="score"></circle>
         </svg>
