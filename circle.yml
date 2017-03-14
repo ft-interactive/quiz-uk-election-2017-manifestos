@@ -1,10 +1,29 @@
 machine:
+  timezone: Europe/London
   node:
-    version: 5.0
+    version: stable
+  environment:
+    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
 
 dependencies:
   cache_directories:
+    - ~/.cache/yarn
     - bower_components
-    - node_modules
+  pre:
+    - curl -o- -L https://yarnpkg.com/install.sh | bash # temporary workaround for https://github.com/circleci/circleci-docs/issues/543
   override:
-    - npm install
+    - yarn
+
+test:
+  override:
+    - yarn test
+
+deployment:
+  s3: # this is just a custom name, could be anything
+    branch: /.*/
+    commands:
+      - if [[ $PREVIEW == "true" ]]; then yarn run deploy -- --confirm --preview; else yarn run deploy -- --confirm; fi
+
+general:
+  artifacts:
+    - dist

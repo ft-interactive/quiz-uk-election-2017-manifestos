@@ -16,6 +16,7 @@
     "eslint-config-airbnb": "^6.2.0",
     "eslint-config-react": "^1.1.1",
     "eslint-plugin-react": "^4.3.0",
+    "ft-graphics-deploy": "^0.1.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-data": "^1.2.1",
@@ -34,7 +35,6 @@
     "gulp-uglify": "^1.5.3",
     "gulp-useref": "^2.1.0",
     "gulp-util": "^3.0.7",
-    "igdeploy": "^0.1.0",
     "merge-stream": "^1.0.0",
     "nodemon": "^1.9.1",
     "run-sequence": "^1.1.5",
@@ -51,8 +51,8 @@
     "build": "gulp build",
     "postinstall": "bower install",
     "start": "nodemon --watch gulpfile.babel.js --exec 'gulp clean && gulp serve'",
-    "deploy": "gulp deploy",
-    "test": "eslint . && npm run build"
+    "deploy": "ft-graphics-deploy --assets-prefix=https://ig.ft.com/v2/__assets/",
+    "test": "npm run build"
   },
   "dependencies": {
     "angular": "~1.5.3",
