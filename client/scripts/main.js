@@ -122,7 +122,7 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
       }
 
       // Update progress bar
-      const progress = ($scope.currentQuestion.value + 1) * 10;
+      const progress = ($scope.currentQuestion.value + 1) * 12.5;
       document.querySelector('.progress-bar').style.width = `${progress}%`;
 
       // console.log(window.responses.data[$scope.userScore.value].percentage);
