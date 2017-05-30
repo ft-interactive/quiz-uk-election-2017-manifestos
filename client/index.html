@@ -79,8 +79,8 @@
     <include src="includes/analytics-ga.html"></include>
 
     <!-- TODO: set base URL **with trailing slash** -->
-    <!-- <base href="/"> -->
-    <base href="https://ig.ft.com/ge17/party-manifesto-quiz/">
+    <base href="/">
+    <!-- <base href="https://ig.ft.com/ge17/party-manifesto-quiz/"> -->
   </head>
 
   <body>
@@ -94,17 +94,24 @@
           <div class="o-grid-row">
             <header data-o-grid-colspan="12 S11 Scenter M9 L8 XL7">
               <!-- TODO: configure sharing in the include file -->
-              <a href="https://www.ft.com/uk-general-election" class="o-typography-link-topic o-typography-link-topic--medium">UK general election</a>
+              <a href="https://www.ft.com/uk-general-election" class="o-typography-link-topic o-typography-link-topic--medium" style="display: block; padding-bottom: 5px">UK general election</a>
 
               <h1 class="o-typography-heading1">{{title}}</h1>
 
               <p class="o-typography-lead">{{description}}</p>
 
+              <figure class="graphic graphic-b-1 graphic-pad-1">
+                <img alt="" src="https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3A58d4c65c-4554-11e7-8d27-59b4dd6296b8?source=ig&width=700&fit=scale-down"></img>
+                  <figcaption class="o-typography-caption">
+                  FT graphic: Kari-Ruth Pedersen
+                </figcaption>
+              </figure>
+
               <include src="includes/share.html"></include>
 
               <p>
                 <time data-o-component="o-date" class="o-typography-timestamp o-date" datetime="{{publishedDate}}T05:30:00.000Z">{{publishedDateLong}}</time>
-                <span class="article__byline">&nbsp;by Zosia Wasik</span>
+                <span class="article__byline">&nbsp;by: Zosia Wasik</span>
               </p>
             </header>
           </div>
