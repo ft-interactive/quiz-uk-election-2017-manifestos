@@ -18,9 +18,6 @@ $o-header-is-silent: false;
 $o-icons-is-silent: false;
 @import "o-icons/main";
 
-$o-share-is-silent: false;
-@import 'o-share/main';
-
 $o-typography-is-silent: false;
 @import 'o-typography/main';
 
@@ -76,18 +73,7 @@ $share-button-size: 38px;
 .article {
   &-head {
     margin-top: 18px;
-    margin-bottom: 18px;
-    .o-share--vertical {
-      float: right;
-      .o-share__action {
-        margin: 0 0 0 5px;
-        a,
-        a:first-child {
-          padding-top: 0;
-          padding-bottom: 5px;
-        }
-      }
-    }
+    margin-bottom: 0px;
   }
 
   &-body {
@@ -153,10 +139,6 @@ $share-button-size: 38px;
 
 .o-typography-flyline__link {
   @include oColorsFor(tag-link);
-}
-
-.article__byline a {
-  @include oColorsFor(link);
 }
 
 .o-typography-body-wrapper h2 {
